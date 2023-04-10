@@ -67,7 +67,7 @@ export const createStudent = async (req, res) => {
 
 export const getAllStudent = async (req, res) => {
 	try {
-		const all_students = await StudentModal.find().sort({ created: -1 });
+		const all_students = await StudentModal.find().sort({ createdAt: -1 });
 		res.status(200).json(all_students);
 	} catch (error) {
 		res.status(500).json(error);
