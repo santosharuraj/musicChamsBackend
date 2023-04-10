@@ -14,3 +14,5 @@ const schema = new mongoose.Schema({
 });
 
 const TeacherModal = new mongoose.model("Teacher", schema);
+
+export default TeacherModal;
