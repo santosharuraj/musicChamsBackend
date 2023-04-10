@@ -6,6 +6,7 @@ import {
 	getAllTeacher,
 	loginAdmin,
 	registerAdmin,
+	singleStudent,
 	teacherAssigned,
 	updateStudent,
 	updateTeacher,
@@ -20,6 +21,7 @@ route.post("/login", loginAdmin);
 route.post("/create_student/:id", createStudent);
 route.put("/update_student/:id", updateStudent);
 route.get("/get_all_students", getAllStudent);
+route.get("/get_a_student/:userId", singleStudent);
 
 //teacher
 route.post("/create_teacher/:id", createTeacher);

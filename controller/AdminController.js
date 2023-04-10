@@ -164,3 +164,17 @@ export const teacherAssigned = async (req, res) => {
 		res.status(500).json(error);
 	}
 };
+
+export const singleStudent = async (req, res) => {
+	const userId = req.params.userId;
+	try {
+		const student = await StudentModal.findById(userId);
+		if (student) {
+			res.status(200).json(student);
+		} else {
+			res.status(404).json("Student not exist");
+		}
+	} catch (error) {
+		res.status(500).json(error);
+	}
+};
