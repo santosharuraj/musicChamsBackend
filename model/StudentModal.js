@@ -9,6 +9,7 @@ const schema = new mongoose.Schema(
 		studentEmail: {
 			type: String,
 			required: true,
+			unique: true,
 		},
 		courseName: {
 			type: String,
@@ -34,6 +35,9 @@ const schema = new mongoose.Schema(
 			type: String,
 		},
 		meetingLink: {
+			type: String,
+		},
+		classeAttend: {
 			type: String,
 		},
 	},

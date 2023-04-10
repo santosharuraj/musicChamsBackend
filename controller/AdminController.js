@@ -44,12 +44,19 @@ export const loginAdmin = async (req, res) => {
 
 export const createStudent = async (req, res) => {
 	const id = req.params.id;
+	const { teacherEmail } = req.body;
 	try {
 		const is_admin_exist = await AdminModal.findById(id);
 		if (!is_admin_exist) {
 			return res.status(404).json("Admin doest not exist");
 		}
+		const teacher_email_exist = await TeacherModal.findOne({
+			email: teacherEmail,
+		});
 
+		if (!teacher_email_exist) {
+			return res.status(404).json("Teacher email dost not exist");
+		}
 		const newStudent = new StudentModal(req.body);
 		await newStudent.save();
 		res.status(201).json(newStudent);
