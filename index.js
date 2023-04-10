@@ -8,12 +8,12 @@ const app = express();
 
 app.use(express.json());
 app.use(cors());
-
+const PORT = process.env.PORT || 4000;
 const URL = process.env.DB_URL;
 mongoose
     .connect(URL, { useNewUrlParser: true })
     .then((result) => {
-        app.listen(4000, () => {
+        app.listen(PORT, () => {
             console.log("Connected server");
         });
     })
